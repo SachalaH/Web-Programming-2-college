@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms practice 2</title>
+  </head>
+
+  <body>
+    <h1>PHP multiple selection form.</h1>
+    <form action="forms_2.php" method="post">
+      <label for="cars">Choose your favorite cars:</label>
+
+      <select name="cars[]" id="cars" multiple size="4">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+      <p>Note: Hold ctrl on windows or cmd on Mac to select multiple</p>
+      <h2>Sample Q1) Friendly animal</h2>
+      <pre>A. Cat     B. Dog     C. Mouse    D. Turtle</pre>
+      <input type="radio" name="one[]" value="cat" />A
+      <input type="radio" name="one[]" value="dog" />B
+      <input type="radio" name="one[]" value="mouse" />C
+      <input type="radio" name="one[]" value="turtle" />D
+      <h2>Sample Q2) Square of 5</h2>
+      <pre>A. 1     B. 25     C. 16    D. 9</pre>
+      <input type="radio" name="two[]" value="1" />A
+      <input type="radio" name="two[]" value="25" />B
+      <input type="radio" name="two[]" value="16" />C
+      <input type="radio" name="two[]" value="9" />D
+      <br />
+      <br />
+      <label for="check_list[]"> Which accessories you own? </label>
+      <br />
+      <input type="checkbox" name="check_list[]" value="Mobile" />Mobile
+      <br />
+      <input type="checkbox" name="check_list[]" value="Laptop" />Laptop
+      <br />
+      <input type="checkbox" name="check_list[]" value="Headphones" />Headphones
+      <br />
+      <input type="checkbox" name="check_list[]" value="Powerbank" />Powerbank
+      <br />
+      <input type="checkbox" name="check_list[]" value="Mobile case" />Mobile
+      case
+      <br />
+      <label for="hiddenField">
+        <h1>A hidden field</h1>
+      </label>
+      <input
+        type="hidden"
+        name="hiddenField"
+        id="hiddenField"
+        value="Hello I am Hidden"
+      />
+      <br />
+      <input type="submit" value="submit" name="submit" />
+    </form>
+  </body>
+</html>
