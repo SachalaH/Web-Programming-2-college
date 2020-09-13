@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .radio-box,
+      .form-rectangle,
+      .form-circle,
+      .form-square {
+        display: none;
+      }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <title>Event handler</title>
+    <!-- Script to manipulate form -->
+    <script>
+      window.onload = function () {
+        document.querySelector(".radio-box").style.display = "block";
+        let rectangle = document.querySelector("#rectangle");
+        let square = document.querySelector("#square");
+        let circle = document.querySelector("#circle");
+        rectangle.addEventListener("click", () => {
+          if (rectangle.checked) {
+            document.querySelector(".form-circle").style.display = "none";
+            document.querySelector(".form-square").style.display = "none";
+            document.querySelector(".form-rectangle").style.display = "block";
+          }
+        });
+        square.addEventListener("click", () => {
+          if (square.checked) {
+            document.querySelector(".form-rectangle").style.display = "none";
+            document.querySelector(".form-circle").style.display = "none";
+            document.querySelector(".form-square").style.display = "block";
+          }
+        });
+        circle.addEventListener("click", () => {
+          if (circle.checked) {
+            document.querySelector(".form-circle").style.display = "block";
+            document.querySelector(".form-square").style.display = "none";
+            document.querySelector(".form-rectangle").style.display = "none";
+          }
+        });
+      };
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Event handler</h1>
+      <h1>Area of different shapes</h1>
+    </div>
+    <div class="container">
+      <form action="eventHandler.php" method="GET">
+        <!-- Radio buttons -->
+        <div class="radio-box">
+          <div class="form-group">
+            <input type="radio" name="area" id="rectangle" value="rectangle" />
+            <label for="area">Area of Rectangle</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" name="area" id="square" value="square" />
+            <label for="area">Area of Square</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" name="area" id="circle" value="circle" />
+            <label for="area">Area of circle</label>
+          </div>
+        </div>
+        <!-- Rectangle -->
+        <div class="form-rectangle">
+          <div class="form-group">
+            <label for="length">Length</label>
+            <input
+              type="number"
+              class="form-control"
+              id="length"
+              placeholder="5"
+              name="length"
+            />
+          </div>
+          <div class="form-group">
+            <label for="breadth">Breadth</label>
+            <input
+              type="number"
+              class="form-control"
+              id="breadth"
+              placeholder="5"
+              name="breadth"
+            />
+          </div>
+        </div>
+        <!-- Square -->
+        <div class="form-square">
+          <div class="form-group">
+            <label for="side">Side of Sqaure</label>
+            <input
+              type="number"
+              class="form-control"
+              id="side"
+              placeholder="5"
+              name="side"
+            />
+          </div>
+        </div>
+        <!-- Circle -->
+        <div class="form-circle">
+          <div class="form-group">
+            <label for="radius">Radius of circle</label>
+            <input
+              type="number"
+              class="form-control"
+              id="radius"
+              placeholder="5"
+              name="radius"
+            />
+          </div>
+        </div>
+        <!-- Submit button -->
+        <div class="form-group">
+          <input
+            type="submit"
+            value="Submit"
+            id="submit"
+            name="submit-area"
+            class="btn btn-primary"
+          />
+        </div>
+      </form>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

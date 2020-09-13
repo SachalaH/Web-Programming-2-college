@@ -1,0 +1,181 @@
+<?php 
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .query,
+      .feedback,
+      .other {
+        display: none;
+      }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <title>Event handler</title>
+    <!-- Script to manipulate form -->
+    <script>
+      window.onload = function () {
+        let select = document.querySelector(".custom-select");
+        let otherCheckBox = document.querySelector("#other-box");
+        select.addEventListener("change", (e) => {
+          if (e.target.value === "feedback") {
+            document.querySelector(".feedback").style.display = "block";
+            document.querySelector(".query").style.display = "none";
+          } else if (e.target.value === "query") {
+            document.querySelector(".feedback").style.display = "none";
+            document.querySelector(".query").style.display = "block";
+            otherCheckBox.addEventListener("click", () => {
+              if (otherCheckBox.checked) {
+                document.querySelector(".other").style.display = "block";
+              } else {
+                document.querySelector(".other").style.display = "none";
+              }
+            });
+          } else {
+            document.querySelector(".query").style.display = "none";
+            document.querySelector(".feedback").style.display = "none";
+          }
+        });
+      };
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Event handler</h1>
+      <h1>Contact form</h1>
+    </div>
+    <div class="container">
+      <form action="eventHandler.php" method="POST">
+        <!-- Basic details -->
+        <div class="form-basic">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="eg: John Doe"
+              name="name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="eg: john.doe@example.com"
+              name="email"
+            />
+          </div>
+        </div>
+
+        <!-- Options -->
+        <label for="concern">Select your concern</label>
+        <select class="custom-select" name="concern">
+          <option value="none" selected>None</option>
+          <option value="feedback">Feedback</option>
+          <option value="query">Query</option>
+        </select>
+
+        <!-- query options -->
+        <div class="query my-3">
+          <p>Select the relevant</p>
+          <div class="form-group">
+            <input type="checkbox" name="q1" value="App crash" id="q1" />
+            <label for="q1">App is crashing?</label>
+          </div>
+          <div class="form-group">
+            <input
+              type="checkbox"
+              name="q2"
+              value="User data not displayed"
+              id="q2"
+            />
+            <label for="q2">What you added is not visible?</label>
+          </div>
+          <div class="form-group">
+            <input
+              type="checkbox"
+              name="q3"
+              value="New note add issue"
+              id="q3"
+            />
+            <label for="q3">Not able to add new note?</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" name="other-box" id="other-box" />
+            <label for="other-box">Other</label>
+          </div>
+          <div class="other">
+            <label for="other-query"
+              >Please tell us more about your query:</label
+            >
+            <textarea
+              class="form-control"
+              name="other-query"
+              id="other-query"
+              rows="5"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Feedback options -->
+        <div class="feedback">
+          <label for="feedback">Please give us your feedback:</label>
+          <textarea
+            class="form-control"
+            name="feedback"
+            id="feedback"
+            rows="5"
+          ></textarea>
+        </div>
+
+        <!-- Submit button -->
+        <div class="form-group my-2">
+          <input
+            type="submit"
+            value="Submit"
+            id="submit"
+            name="submit"
+            class="btn btn-primary"
+          />
+        </div>
+      </form>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
